@@ -1,5 +1,11 @@
 pipeline{
     agent {label 'ubuntu'}
+    parameters{
+        gitParameter(branchFilter: 'origin/(.*)',
+        defaultValue: 'master',
+        name: 'BRANCH',
+        type: 'PT_BRANCH')
+    }
     stages{
         stage('Checkout'){
             steps{
@@ -8,7 +14,7 @@ pipeline{
         }
         stage('Clone'){
             steps{
-                git url: 'https://github.com/Diego-pgm/homepage.git'
+                git branch: "${params.BRANCH}", url: 'https://github.com/Diego-pgm/homepage.git'
             }
         }
         stage('Move file'){
