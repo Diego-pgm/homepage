@@ -8,7 +8,7 @@ pipeline{
         }
         stage('Clone'){
             steps{
-                git url: 'https://github.com/Diego-pgm/homepage.git'
+                git branch: "${BRANCH_NAME}", url: 'https://github.com/Diego-pgm/homepage.git'
             }
         }
         stage('Move file'){
