@@ -8,10 +8,7 @@ pipeline{
         }
         stage('Clone'){
             steps{
-                script{
-                    def branch = "${BRANCH_NAME}"
-                }
-                git branch: "${branch}", url: 'https://github.com/Diego-pgm/homepage.git'
+                git branch: "${BRANCH_NAME}", url: 'https://github.com/Diego-pgm/homepage.git'
             }
         }
         stage('Move file'){
