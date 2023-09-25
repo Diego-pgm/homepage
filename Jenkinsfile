@@ -11,7 +11,7 @@ pipeline{
                 script{
                     def branch = "${BRANCH_NAME}"
                 }
-                git branch: "${branch}" url: 'https://github.com/Diego-pgm/homepage.git'
+                git branch: "${branch}", url: 'https://github.com/Diego-pgm/homepage.git'
             }
         }
         stage('Move file'){
