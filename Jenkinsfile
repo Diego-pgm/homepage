@@ -3,12 +3,15 @@ pipeline{
     stages{
         stage('Checkout'){
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: '**']], extensions: [], userRemoteConfigs: [[credentialsId: 'Diego-pgm', url: 'https://github.com/Diego-pgm/homepage.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/*']], extensions: [], userRemoteConfigs: [[credentialsId: 'Diego-pgm', url: 'https://github.com/Diego-pgm/homepage.git']]])
             }
         }
         stage('Clone'){
             steps{
-                git url: 'https://github.com/Diego-pgm/homepage.git'
+                script{
+                    def branch = "${BRANCH_NAME}"
+                }
+                git branch: "${branch}" url: 'https://github.com/Diego-pgm/homepage.git'
             }
         }
         stage('Move file'){
