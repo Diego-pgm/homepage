@@ -9,7 +9,7 @@ pipeline{
     stages{
         stage('Checkout'){
             steps{
-                checkout([$class: 'GitSCM', branches: [[name: 'master']], extensions: [], userRemoteConfigs: [[[credentialsId: 'Diego-pgm' url: 'https://github.com/Diego-pgm/homepage.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: 'master']], extensions: [], userRemoteConfigs: [[[credentialsId: 'Diego-pgm', url: 'https://github.com/Diego-pgm/homepage.git']]])
             }
         }
         stage('Clone'){
