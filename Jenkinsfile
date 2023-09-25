@@ -3,7 +3,7 @@ pipeline{
     stages{
         stage('Checkout'){
             steps{
-                checkout (branches: [[name: '**']], extensions: [], userRemoteConfigs: [[credentialsId: 'Diegopgm', url: 'https://github.com/Diego-pgm/homepage.git']])
+                checkout scmGit(branches: [[name: '**']], extensions: [], userRemoteConfigs: [[credentialsId: 'Diego-pgm', url: 'https://github.com/Diego-pgm/homepage.git']])
             }
         }
         stage('Clone'){
